@@ -1,6 +1,6 @@
 /* ================= SERVIDOR ================= */
 
-let servidorActual = localStorage.getItem("srv") || "ody";
+let servidorActual = localStorage.getItem("srv") || "ok";
 
 const srvOk  = document.getElementById("srvOk");
 const srvOdy = document.getElementById("srvOdy");
@@ -87,12 +87,9 @@ function reproducir(index){
   /* fallback automático inteligente */
   let servidor = servidorActual;
 
-if (servidor === "ody" && !ody){
-  servidor = "ok";
-  servidorActual = "ok";
-  localStorage.setItem("srv","ok");
-  pintarServidor();
-}
+  if (servidor === "ody" && !ody){
+    servidor = "ok";
+  }
 
   srvOdy?.classList.toggle("disabled", !ody);
 
