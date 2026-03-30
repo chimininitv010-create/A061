@@ -87,9 +87,12 @@ function reproducir(index){
   /* fallback automático inteligente */
   let servidor = servidorActual;
 
-  if (servidor === "ody" && !ody){
-    servidor = "ok";
-  }
+if (servidor === "ody" && !ody){
+  servidor = "ok";
+  servidorActual = "ok";
+  localStorage.setItem("srv","ok");
+  pintarServidor();
+}
 
   srvOdy?.classList.toggle("disabled", !ody);
 
